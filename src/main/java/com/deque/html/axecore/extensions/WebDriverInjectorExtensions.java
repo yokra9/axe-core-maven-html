@@ -110,6 +110,7 @@ public final class WebDriverInjectorExtensions {
       final String script, final List<WebElement> parents) {
     JavascriptExecutor js = (JavascriptExecutor) driver;
     List<WebElement> frames = driver.findElements(By.tagName("iframe"));
+    frames.addAll(driver.findElements(By.tagName("frame")));
 
     for (WebElement frame : frames) {
       driver.switchTo().defaultContent();
@@ -146,7 +147,8 @@ public final class WebDriverInjectorExtensions {
       final String script, final List<WebElement> parents) {
     JavascriptExecutor js = (JavascriptExecutor) driver;
     List<WebElement> frames = driver.findElements(By.tagName("iframe"));
-
+    frames.addAll(driver.findElements(By.tagName("frame")));
+    
     for (WebElement frame : frames) {
       driver.switchTo().defaultContent();
 
